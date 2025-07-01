@@ -2,19 +2,48 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>acwydautay</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Dao Anh Thu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(to bottom right, #fff5f9, #fff0f5);
-      font-family: 'Quicksand', sans-serif;
+      font-family: Arial, sans-serif;
       color: #aa6f87;
       text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease-in-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Mây trôi nhạt */
+    .cloud {
+      position: absolute;
+      background: #ffffff80;
+      border-radius: 50%;
+      z-index: 0;
+      animation: moveClouds 60s linear infinite;
+    }
+
+    @keyframes moveClouds {
+      0% { transform: translateX(-300px); }
+      100% { transform: translateX(100vw); }
+    }
+
+    .cloud1 { top: 80px; left: -200px; width: 120px; height: 60px; opacity: 0.3; }
+    .cloud2 { top: 150px; left: -250px; width: 160px; height: 80px; opacity: 0.2; animation-duration: 90s; }
+    .cloud3 { top: 220px; left: -300px; width: 100px; height: 50px; opacity: 0.25; animation-duration: 75s; }
+
     .container {
       padding: 50px 20px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -22,11 +51,12 @@
       font-size: 48px;
       color: #d88fa6;
       margin-bottom: 10px;
+      animation: shine 2s infinite alternate;
     }
 
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
+    @keyframes shine {
+      0% { text-shadow: 0 0 5px #ffcce0; }
+      100% { text-shadow: 0 0 15px #ff99cc; }
     }
 
     .avatar {
@@ -35,6 +65,13 @@
       border-radius: 50%;
       border: 4px solid #ffe0eb;
       margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
+      transition: 0.3s ease;
+      object-fit: cover;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05) rotate(2deg);
     }
 
     button {
@@ -49,8 +86,10 @@
       transition: all 0.3s ease;
     }
 
-    button:hover {
+    button:hover, .link:hover {
+      transform: scale(1.05);
       background-color: #ffc9dd;
+      box-shadow: 0 0 10px #ffd6e6;
     }
 
     .link {
@@ -63,11 +102,7 @@
       text-decoration: none;
       border-radius: 25px;
       font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .link:hover {
-      background-color: #ffe0eb;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     footer {
@@ -78,28 +113,34 @@
   </style>
 </head>
 <body>
+  <!-- ☁️ Mây trôi -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
   <div class="container">
-    <!-- Avatar mới -->
-    <img class="avatar" src="https://i.pinimg.com/564x/7e/c8/46/7ec846cb680678ff2f0cf49fd1f8592e.jpg" alt="Avatar coquette">
+    <!-- 🐱 Ảnh mèo làm avatar -->
+    <img class="avatar" src="https://i.imgur.com/XnCkE3y.jpg" alt="Avatar mèo dễ thương">
 
-    <h1>Anhthu✨️</h1>
+    <h1>Anhthu ✨️</h1>
 
-    <!-- Nút điều khiển nhạc -->
-    <button onclick="music.play()">Play Music 🎶</button>
-    <button onclick="music.pause()">Stop Music ✋</button>
+    <!-- 🎵 Nhạc nền -->
+    <button onclick="document.getElementById('music').play()">Play Music 🎶</button>
+    <button onclick="document.getElementById('music').pause()">Stop Music ✋</button>
 
-    <!-- Nhạc nền: Anh Sẽ Đón Em - Remix -->
     <audio id="music" loop>
-      <source src="https://dl.dropboxusercontent.com/scl/fi/dn9duudcmg40kxaiqw5uj/Anh-Se-Don-Em-Remix.mp3?rlkey=40d7lxv2pg1ysngk6dnquh9yo&dl=0" type="audio/mpeg">
+      <source src="https://dl.dropboxusercontent.com/scl/fi/fhwg85sbfm04t0knul37z/Anh-Se-Don-Em-Remix-FIX.mp3?rlkey=w7v1r29yf6a1vex5z40tdnh56&dl=0" type="audio/mpeg">
     </audio>
 
-    <!-- Liên kết -->
+    <!-- 🌸 Liên kết mạng xã hội -->
     <a class="link" href="https://zalo.me/0358726068" target="_blank">🌸 Zalo</a>
     <a class="link" href="https://www.facebook.com/acwydautay?mibextid=ZbWKwL" target="_blank">🌷 Facebook</a>
     <a class="link" href="https://www.tiktok.com/@_ngdaoathuwwww" target="_blank">🌺 TikTok</a>
 
+    <p style="font-style: italic; margin-top: 10px;" anh thu xin chaooo ”</p>
+
     <footer>
-      © 2025 with 💕 by anhthu
+      © 2023 with 💕 by anhthu
     </footer>
   </div>
 </body>
